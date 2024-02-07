@@ -68,7 +68,7 @@ original_data = pd.read_csv('Raw data all w.csv')
 combined_data = pd.concat([xano_data_df, original_data])
 
 st.dataframe(xano_data_df)
-st.dataframe(original_data)
+# st.dataframe(original_data)
 st.dataframe(combined_data)
 
 # Load the UMAP model from the joblib file
