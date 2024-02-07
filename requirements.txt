@@ -1,3 +1,10 @@
 altair
+numpy
 pandas
+pydeck
 streamlit
+scikit-learn
+umap-learn
+flask
+requests
+joblib
