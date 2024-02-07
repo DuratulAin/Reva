@@ -62,7 +62,7 @@ st.title('Model Prediction App')
 xano_data_df = pd.read_csv('absorbance_data.csv')
 
 # Load the CSV data of original data
-original_data = pd.read_csv('Raw data all w.csv')
+original_data = pd.read_csv('Raw data all.csv')
 
 # Combine both datas
 combined_data = pd.concat([xano_data_df, original_data])
