@@ -8,7 +8,7 @@ from io import StringIO
 
 # Function to retrieve data from Xano and save it as a CSV file
 def retrieve_data():
-    xano_api_endpoint_bg = 'https://x8ki-letl-twmt.n7.xano.io/api:IAHLwzVr/bgdata'
+    xano_api_endpoint_bg = 'https://x8ki-letl-twmt.n7.xano.io/api:U4wk_Gn6/BackgroundReading'
     payload_bg = {}
     response_bg = requests.get(xano_api_endpoint_bg, params=payload_bg)
 
@@ -19,7 +19,7 @@ def retrieve_data():
         st.error(error_message)
         return None
 
-    xano_api_endpoint_spectral = 'https://x8ki-letl-twmt.n7.xano.io/api:IAHLwzVr/spectraldata'
+    xano_api_endpoint_spectral = 'https://x8ki-letl-twmt.n7.xano.io/api:DKaWNKM4/spectral_data'
     payload_spectral = {}
     response_spectral = requests.get(xano_api_endpoint_spectral, params=payload_spectral)
 
