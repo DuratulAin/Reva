@@ -31,7 +31,7 @@ def retrieve_data():
         return None
 
     # Extract first line and convert to numeric
-    df_bg = pd.DataFrame(data_bg).iloc[:2].apply(pd.to_numeric, errors='coerce')
+    df_bg = pd.DataFrame(data_bg).iloc[1:2].apply(pd.to_numeric, errors='coerce')
     df_spectral = pd.DataFrame(data_spectral).iloc[:1].apply(pd.to_numeric, errors='coerce')
 
     # Calculate absorbance
