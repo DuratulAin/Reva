@@ -5,6 +5,7 @@ import requests
 import base64
 import umap
 from io import StringIO
+import matplotlib.pyplot as plt
 
 # Function to retrieve data from Xano and save it as a CSV file
 def retrieve_data():
@@ -48,6 +49,31 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Read the data, assuming the first row is your header
+df = pd.read_csv('absorbance.csv', header=None).transpose()
+
+# Set the first row as the header to properly label the data
+df.columns = df.iloc[0]  # This sets the first row as the column names
+df = df[1:]  # Remove the first row from the data
+
+# Convert data to numeric, as it might be read as object types
+df = df.apply(pd.to_numeric, errors='coerce')
+
+# Plotting
+fig, ax = plt.subplots()
+x_values = df.iloc[:, 0]  # The first column as x-axis
+
+for column in df.columns[1:]:  # Loop through remaining columns for y-axis
+    ax.plot(x_values, df[column], label=column)
+
+# Adding labels and title (optional)
+ax.set_xlabel('Wavelength')
+ax.set_ylabel('Absorbance')
+ax.set_title('Plot Title')
+
+# Show plot in Streamlit
+st.pyplot(fig)
 
 # Function to load a model from a pickle file
 def load_model(model_file):
