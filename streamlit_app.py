@@ -101,7 +101,7 @@ def main():
     processed_data = data  # Placeholder for any preprocessing needed for your model
 
     # Load TensorFlow model
-    tf_model_folder_path = '/workspaces/Reva/reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_folder_path = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
     tf_model = load_tf_model(tf_model_folder_path)
 
     # Optional: Inspect model signature to verify input/output
