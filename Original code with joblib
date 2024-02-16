@@ -49,7 +49,7 @@ def main():
     st.title('Model Prediction App')
 
     # Retrieve and plot data
-    data = retrieve_data()
+    xano_data_df = retrieve_data()
 
     # Load the CSV data of original data
     original_data = pd.read_csv('Raw data all.csv')
