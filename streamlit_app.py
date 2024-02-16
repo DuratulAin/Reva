@@ -116,8 +116,14 @@ def main():
     st.markdown('<font size="5"><b>Haemoglobin Value:</b></font>', unsafe_allow_html=True)
 
     predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
-    # Format the prediction with HTML for displaying in Streamlit, ensuring it's displayed as a floating-point number
-    st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
+
+    # Check if the predicted value is more than 16
+    if predicted_value > 16:
+        # Display only the word "High" in red
+        st.markdown('<font size="5"><b><span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+    else:
+        # If the predicted value does not exceed 16, display the value normally
+        st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
