@@ -5,7 +5,6 @@ import requests
 import base64
 import umap
 from io import StringIO
-import matplotlib.pyplot as plt
 
 # Function to retrieve data from Xano and save it as a CSV file
 def retrieve_data():
