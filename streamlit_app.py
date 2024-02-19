@@ -117,12 +117,12 @@ def main():
 
     predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
 
-    # Check if the predicted value is more than 16
-    if predicted_value > 16:
+    # Check if the predicted value is more than 25
+    if predicted_value > 25:
         # Display only the word "High" in red
-        st.markdown('<font size="5"><b><span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+        st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
-        # If the predicted value does not exceed 16, display the value normally
+        # If the predicted value does not exceed 25, display the value normally
         st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
