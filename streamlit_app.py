@@ -96,6 +96,11 @@ def main():
     # Retrieve and plot data
     data = retrieve_data()
 
+    # Display the absorbance data table
+    st.markdown('**Absorbance Data Table:**')
+    absorbance_data_df = pd.read_csv('absorbanceData.csv')
+    st.dataframe(absorbance_data_df)
+
     # Assuming the model expects a specific shape or preprocessing, apply it here
     # For demonstration, using the data directly
     processed_data = data  # Placeholder for any preprocessing needed for your model
