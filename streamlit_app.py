@@ -105,30 +105,53 @@ def main():
     # For demonstration, using the data directly
     processed_data = data  # Placeholder for any preprocessing needed for your model
 
-    # Load TensorFlow model
-    tf_model_folder_path = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
-    tf_model = load_tf_model(tf_model_folder_path)
+    # Load TensorFlow model 1
+    tf_model_folder_path_1 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_1 = load_tf_model(tf_model_folder_path_1)
+
+    # Load TensorFlow model 2
+    tf_model_folder_path_2 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_2 = load_tf_model(tf_model_folder_path_2)
+
+    # Load TensorFlow model 3
+    tf_model_folder_path_3 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_3 = load_tf_model(tf_model_folder_path_3)
 
     # Optional: Inspect model signature to verify input/output
     # inspect_model_signature(tf_model)
 
     # Make predictions with the TensorFlow model
-    predictions = make_prediction_with_tf_model(tf_model, processed_data)
+    predictions_1 = make_prediction_with_tf_model(tf_model_1, processed_data)
+    predictions_2 = make_prediction_with_tf_model(tf_model_2, processed_data)
+    predictions_3 = make_prediction_with_tf_model(tf_model_3, processed_data)
 
     # Display predictions - adjust according to your actual model's output
     # st.write("Predictions:", predictions)
 
     st.markdown('<font size="5"><b>Haemoglobin Value:</b></font>', unsafe_allow_html=True)
 
-    predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
+    predicted_value_1 = predictions_1[0][0]  # This accesses the first element in the nested structure
+    predicted_value_2 = predictions_2[0][0]  # This accesses the first element in the nested structure
+    predicted_value_3 = predictions_3[0][0]  # This accesses the first element in the nested structure
 
-    # Check if the predicted value is more than 25
-    if predicted_value > 25:
-        # Display only the word "High" in red
-        st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+    # Assuming st is Streamlit and you've previously defined it
+    # Check and display for predicted_value_1
+    if predicted_value_1 > 25:
+        st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
-        # If the predicted value does not exceed 25, display the value normally
-        st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
+        st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL</b></font>', unsafe_allow_html=True)
+    
+    # Check and display for predicted_value_2
+    if predicted_value_2 > 25:
+        st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL</b></font>', unsafe_allow_html=True)
+    
+    # Check and display for predicted_value_3
+    if predicted_value_3 > 25:
+        st.markdown(f'<font size="5"><b>{predicted_value_3:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<font size="5"><b>{predicted_value_3:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
