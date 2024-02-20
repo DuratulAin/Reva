@@ -136,7 +136,7 @@ def main():
 
     # Assuming st is Streamlit and you've previously defined it
     # Check and display for predicted_value_1
-    st.markdown('<h2 style="font-weight:bold;">R39</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="font-bold;">R39</h2>', unsafe_allow_html=True)
 
     if predicted_value_1 > 25:
         st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
@@ -144,14 +144,14 @@ def main():
         st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL</b></font>', unsafe_allow_html=True)
     
     # Check and display for predicted_value_2
-    st.markdown('<h2 style="font-weight:bold;">R25</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="font-bold;">R25</h2>', unsafe_allow_html=True)
     if predicted_value_2 > 25:
         st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
         st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL</b></font>', unsafe_allow_html=True)
     
     # Check and display for predicted_value_3
-    st.markdown('<h2 style="font-weight:bold;">R26</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="font-bold;">R26</h2>', unsafe_allow_html=True)
     if predicted_value_3 > 25:
         st.markdown(f'<font size="5"><b>{predicted_value_3:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
