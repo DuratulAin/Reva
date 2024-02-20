@@ -110,11 +110,11 @@ def main():
     tf_model_1 = load_tf_model(tf_model_folder_path_1)
 
     # Load TensorFlow model 2
-    tf_model_folder_path_2 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_folder_path_2 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
     tf_model_2 = load_tf_model(tf_model_folder_path_2)
 
     # Load TensorFlow model 3
-    tf_model_folder_path_3 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_folder_path_3 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_17-44-04_b4_r0.26'
     tf_model_3 = load_tf_model(tf_model_folder_path_3)
 
     # Optional: Inspect model signature to verify input/output
@@ -136,18 +136,21 @@ def main():
 
     # Assuming st is Streamlit and you've previously defined it
     # Check and display for predicted_value_1
+    st.markdown('R39')
     if predicted_value_1 > 25:
         st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
         st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL</b></font>', unsafe_allow_html=True)
     
     # Check and display for predicted_value_2
+    st.markdown('R25')
     if predicted_value_2 > 25:
         st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
         st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL</b></font>', unsafe_allow_html=True)
     
     # Check and display for predicted_value_3
+    st.markdown('R26')
     if predicted_value_3 > 25:
         st.markdown(f'<font size="5"><b>{predicted_value_3:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
     else:
