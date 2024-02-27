@@ -107,8 +107,8 @@ def main():
 
     # Assuming you have two more model folder paths
     tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
-    tf_model_folder_path2 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
-    tf_model_folder_path3 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_17-44-04_b4_r0.26'
+    tf_model_folder_path2 = 'tflite_model.tflite'
+    tf_model_folder_path3 = 'model_new.tflite'
     
     # Load TensorFlow models
     tf_model1 = load_tf_model(tf_model_folder_path1)
