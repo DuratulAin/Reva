@@ -79,7 +79,7 @@ def main():
     ]
 
     # Get data from server (simulated here)
-    absorbance_data, wavelengths = json_data()
+    data =  retrieve_data()
 
     for label, model_path in model_paths_with_labels:
         # Load the model
