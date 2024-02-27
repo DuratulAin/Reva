@@ -86,7 +86,7 @@ def main():
         model = load_tf_model(model_path)
         
         # Predict
-        predictions = predict_with_model(model, absorbance_data)
+        predictions = make_prediction_with_tf_model(model, absorbance_data)
         predictions_value = predictions[0][0] if label == 'TFLITE' else predictions[0]  # Adjust based on your model's output
         
         st.markdown("""
