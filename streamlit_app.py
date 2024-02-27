@@ -131,7 +131,7 @@ def main():
     # Make predictions with the TensorFlow model
     predictions_1 = make_prediction_with_tf_model(tf_model_1, processed_data)
     predictions_2 = make_prediction_with_tflite_model(tflite_model_2, processed_data)
-    predictions_3 = make_prediction_with_tflite_model(tflite_model_3 processed_data)
+    predictions_3 = make_prediction_with_tflite_model(tflite_model_3, processed_data)
 
     # Display predictions - adjust according to your actual model's output
     # st.write("Predictions:", predictions)
