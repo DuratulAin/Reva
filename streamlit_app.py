@@ -13,33 +13,6 @@ import tensorflow as tf
 
 def json_data():
     # First API call
-    api_url1 = "https://x8ki-letl-twmt.n7.xano.io/api:U4wk_Gn6/BackgroundReading"
-    payload1 = {}
-    response1 = requests.get(api_url1, params=payload1)
-
-    if response1.status_code == 200:
-        data1 = response1.json()
-    else:
-        st.write("Error in first API call:", response1.status_code)
-        return None
-
-    # Second API call
-    api_url2 = "https://x8ki-letl-twmt.n7.xano.io/api:DKaWNKM4/spectral_data"
-[14:15, 2/27/2024] Hanys USM: import pandas as pd
-import streamlit as st
-import requests
-import matplotlib.pyplot as plt
-import tensorflow as tf
-
-# st.markdown("""
-# <style>
-# .custom-font {font-size: 16px; font-weight: bold;}
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown('<p class="custom-font">Absorbance data :</p>', unsafe_allow_html=True)
-
-def json_data():
-    # First API call
     api_url1 = "https://x8ki-letl-twmt.n7.xano.io/api:3iQkTr3r/backgroundData"
     payload1 = {}
     response1 = requests.get(api_url1, params=payload1)
