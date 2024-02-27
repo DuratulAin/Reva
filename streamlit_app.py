@@ -35,6 +35,7 @@ def retrieve_data():
     wavelength = df_bg.columns
 
     absorbance = df_bg.div(df_spectral.values).pow(2)
+    
     plt.figure(figsize=(10, 6))
     plt.plot(wavelength, absorbance.iloc[0], marker='o', linestyle='-')
     plt.xlabel('Wavelength')
@@ -44,6 +45,9 @@ def retrieve_data():
     st.pyplot(plt)
 
     absorbance.to_csv('absorbanceData.csv', index=False)
+    absorbance_data_df = pd.read_csv('absorbanceData.csv')
+    st.dataframe(absorbance_data_df)
+    processed_data = data.iloc[0].values 
     return absorbance
 
 def load_tf_model(model_dir):
@@ -79,14 +83,14 @@ def main():
     ]
 
     # Get data from server (simulated here)
-    data =  retrieve_data()
+    processed_data, wavelength =  retrieve_data()
 
     for label, model_path in model_paths_with_labels:
         # Load the model
         model = load_tf_model(model_path)
         
         # Predict
-        predictions = make_prediction_with_tf_model(model, absorbance_data)
+        predictions = make_prediction_with_tf_model(model, processed_data)
         predictions_value = predictions[0][0] if label == 'TFLITE' else predictions[0]  # Adjust based on your model's output
         
         st.markdown("""
