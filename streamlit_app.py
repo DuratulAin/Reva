@@ -78,8 +78,8 @@ def main():
     # ]
 
      model_paths_with_labels = [
-            ('R39', 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27')
-        ]
+         ('R39', 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27')
+     ]
     
     # Get data from server (simulated here)
     absorbance_data, wavelengths = json_data()
