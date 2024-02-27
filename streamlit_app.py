@@ -84,32 +84,32 @@ def main():
     # Get data from server (simulated here)
      absorbance_data, wavelengths = json_data()
 
-    for label, model_path in model_paths_with_labels:
-        # Load the model
-        model = load_model(model_path)
-        # st.write(model)
+     for label, model_path in model_paths_with_labels:
+         # Load the model
+         model = load_model(model_path)
+         # st.write(model)
         
         # Predict
-        predictions = predict_with_model(model, absorbance_data)
-        predictions_value = predictions[0][0]
+         predictions = predict_with_model(model, absorbance_data)
+         predictions_value = predictions[0][0]
     
-        st.markdown("""
-        <style>
-        .label {font-size: 16px; font-weight: bold; color: black;}
-        .value {font-size: 60px; font-weight: bold; color: blue;}
+         st.markdown("""
+         <style>
+         .label {font-size: 16px; font-weight: bold; color: black;}
+         .value {font-size: 60px; font-weight: bold; color: blue;}
         .high-value {color: red;}
-        </style> """, unsafe_allow_html=True)
+         </style> """, unsafe_allow_html=True)
     
-        # Add condition for prediction value
-        if predictions_value > 25:
-            display_value = f'<span class="high-value">High value : ({predictions_value:.1f} g/dL)</span>'
-        else:
-            display_value = f'<span class="value">{predictions_value:.1f} g/dL</span>'
+         # Add condition for prediction value
+         if predictions_value > 25:
+             display_value = f'<span class="high-value">High value : ({predictions_value:.1f} g/dL)</span>'
+         else:
+             display_value = f'<span class="value">{predictions_value:.1f} g/dL</span>'
         
-        # Display label and prediction value
-        st.markdown(f'<span class="label">Haemoglobin ({label}):</span><br>{display_value}</p>', unsafe_allow_html=True)
+         # Display label and prediction value
+         st.markdown(f'<span class="label">Haemoglobin ({label}):</span><br>{display_value}</p>', unsafe_allow_html=True)
 
-    # Plotting
+     # Plotting
     plt.figure(figsize=(10, 4))
     plt.plot(wavelengths, absorbance_data.iloc[0], marker='o', linestyle='-', color='b')
     plt.xlabel('Wavelength (nm)', fontweight='bold', fontsize=14)
