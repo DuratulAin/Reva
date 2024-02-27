@@ -47,7 +47,7 @@ def retrieve_data():
     absorbance.to_csv('absorbanceData.csv', index=False)
     absorbance_data_df = pd.read_csv('absorbanceData.csv')
     st.dataframe(absorbance_data_df)
-    processed_data = data.iloc[0].values 
+    processed_data = absorbance.iloc[0].values 
     return absorbance
 
 def load_tf_model(model_dir):
