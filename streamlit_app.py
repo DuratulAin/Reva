@@ -105,30 +105,39 @@ def main():
     # For demonstration, using the data directly
     processed_data = data  # Placeholder for any preprocessing needed for your model
 
-    # Load TensorFlow model
-    tf_model_folder_path = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
-    tf_model = load_tf_model(tf_model_folder_path)
+    # Assuming you have two more model folder paths
+    tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+    tf_model_folder_path2 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
+    tf_model_folder_path3 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_17-44-04_b4_r0.26'
+    
+    # Load TensorFlow models
+    tf_model1 = load_tf_model(tf_model_folder_path1)
+    tf_model2 = load_tf_model(tf_model_folder_path2)
+    tf_model3 = load_tf_model(tf_model_folder_path3)
+    
+    # Optional: Inspect model signature to verify input/output for each model
+    # inspect_model_signature(tf_model1)
+    # inspect_model_signature(tf_model2)
+    # inspect_model_signature(tf_model3)
+    
+    # Make predictions with each TensorFlow model
+    predictions1 = make_prediction_with_tf_model(tf_model1, processed_data)
+    predictions2 = make_prediction_with_tf_model(tf_model2, processed_data)
+    predictions3 = make_prediction_with_tf_model(tf_model3, processed_data)
+    
+    # Display predictions for each model
+    for idx, predictions in enumerate([predictions1, predictions2, predictions3], start=1):
+        st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
+        predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
+    
+        # Check if the predicted value is more than 25
+        if predicted_value > 25:
+            # Display only the word "High" in red for this model
+            st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+        else:
+            # If the predicted value does not exceed 25, display the value normally for this model
+            st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
-    # Optional: Inspect model signature to verify input/output
-    # inspect_model_signature(tf_model)
-
-    # Make predictions with the TensorFlow model
-    predictions = make_prediction_with_tf_model(tf_model, processed_data)
-
-    # Display predictions - adjust according to your actual model's output
-    # st.write("Predictions:", predictions)
-
-    st.markdown('<font size="5"><b>Haemoglobin Value:</b></font>', unsafe_allow_html=True)
-
-    predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
-
-    # Check if the predicted value is more than 25
-    if predicted_value > 25:
-        # Display only the word "High" in red
-        st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
-    else:
-        # If the predicted value does not exceed 25, display the value normally
-        st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
