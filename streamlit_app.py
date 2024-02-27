@@ -62,7 +62,7 @@ def make_prediction_with_tf_model(model, data):
     if isinstance(model, Interpreter):
         input_details = model.get_input_details()
         output_details = model.get_output_details()
-        model.set_tensor(input_details[0]['index'], np.array(data, dtype=np.float32).reshape(1, -1))
+        model.set_tensor(input_details[0]['index'], np.array(data, dtype=np.float64).reshape(1, -1))
         model.invoke()
         predictions = model.get_tensor(output_details[0]['index'])
         return predictions
