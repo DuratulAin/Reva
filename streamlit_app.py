@@ -4,6 +4,7 @@ import joblib
 import requests
 import matplotlib.pyplot as plt
 import tensorflow as tf
+import numpy as np
 
 # Function to retrieve data from Xano and save it as a CSV file
 def retrieve_data():
