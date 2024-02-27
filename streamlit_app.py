@@ -100,7 +100,7 @@ def main():
         # Display predictions for each model
         for idx, predictions in enumerate([predictions1, predictions2, predictions3], start=1):
             st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
-            predicted_value = predictions1[0][0]  # This accesses the first element in the nested structure
+            predicted_value = predictions2[0][0]  # This accesses the first element in the nested structure
         
             # Check if the predicted value is more than 25
             if predicted_value > 25:
