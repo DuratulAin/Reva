@@ -71,12 +71,16 @@ def main():
     #     ('Normalized Manhattan (R40)', 'lablink-hb-norm-manh.csv_best_model_2024-02-22_02-09-42_r40')
     # ]
     
-    model_paths_with_labels = [
-        ('R39', 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'),
-        ('TFLITE1', 'model_new.tflite'),
-        ('TFLITE2', 'tflite_model.tflite')
-    ]
+    # model_paths_with_labels = [
+    #     ('R39', 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'),
+    #     ('TFLITE1', 'model_new.tflite'),
+    #     ('TFLITE2', 'tflite_model.tflite')
+    # ]
 
+     model_paths_with_labels = [
+            ('R39', 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27')
+        ]
+    
     # Get data from server (simulated here)
     absorbance_data, wavelengths = json_data()
 
