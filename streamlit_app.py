@@ -128,46 +128,46 @@ def main():
     plt.show()
     st.pyplot(plt)
 
-# def main():
-#     st.title('Model Prediction App')
+def main():
+    st.title('Model Prediction App')
 
-#     data = retrieve_data()
+    data = retrieve_data()
 
-    # if data is not None:
-    #     st.markdown('**Absorbance Data Table:**')
-    #     absorbance_data_df = pd.read_csv('absorbanceData.csv')
-    #     st.dataframe(absorbance_data_df)
+    if data is not None:
+        st.markdown('**Absorbance Data Table:**')
+        absorbance_data_df = pd.read_csv('absorbanceData.csv')
+        st.dataframe(absorbance_data_df)
 
-    #     processed_data = data.iloc[0].values  # Assuming data preprocessing is required
+        processed_data = data.iloc[0].values  # Assuming data preprocessing is required
 
-    #     tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
-    #     tf_model_folder_path2 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
-    #     tf_model_folder_path3 = 'tflite_model.tflite'
-    #     tf_model_folder_path4 = 'model_new.tflite'
+        tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
+        tf_model_folder_path2 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+        tf_model_folder_path3 = 'tflite_model.tflite'
+        tf_model_folder_path4 = 'model_new.tflite'
 
-    #     tf_model1 = load_tf_model(tf_model_folder_path1)
-    #     tf_model2 = load_tf_model(tf_model_folder_path2)
-    #     tf_model3 = load_tf_model(tf_model_folder_path3)
-    #     tf_model4 = load_tf_model(tf_model_folder_path4)
+        tf_model1 = load_tf_model(tf_model_folder_path1)
+        tf_model2 = load_tf_model(tf_model_folder_path2)
+        tf_model3 = load_tf_model(tf_model_folder_path3)
+        tf_model4 = load_tf_model(tf_model_folder_path4)
 
-    #     # Make predictions with each TensorFlow model
-    #     predictions1 = make_prediction_with_tf_model(tf_model1, processed_data)
-    #     predictions2 = make_prediction_with_tf_model(tf_model2, processed_data)
-    #     predictions3 = make_prediction_with_tf_model(tf_model3, processed_data)
-    #     predictions4 = make_prediction_with_tf_model(tf_model4, processed_data)
+        # Make predictions with each TensorFlow model
+        predictions1 = make_prediction_with_tf_model(tf_model1, processed_data)
+        predictions2 = make_prediction_with_tf_model(tf_model2, processed_data)
+        predictions3 = make_prediction_with_tf_model(tf_model3, processed_data)
+        predictions4 = make_prediction_with_tf_model(tf_model4, processed_data)
         
-    #     # Display predictions for each model
-    #     for idx, predictions in enumerate([predictions1, predictions2, predictions3, predictions4], start=1):
-    #         st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
-    #         predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
+        # Display predictions for each model
+        for idx, predictions in enumerate([predictions1, predictions2, predictions3, predictions4], start=1):
+            st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
+            predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
         
-    #         # Check if the predicted value is more than 25
-    #         if predicted_value > 25:
-    #             # Display only the word "High" in red for this model
-    #             st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
-    #         else:
-    #             # If the predicted value does not exceed 25, display the value normally for this model
-    #             st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
+            # Check if the predicted value is more than 25
+            if predicted_value > 25:
+                # Display only the word "High" in red for this model
+                st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+            else:
+                # If the predicted value does not exceed 25, display the value normally for this model
+                st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
