@@ -110,8 +110,8 @@ def main():
     tf_model_1 = load_tf_model(tf_model_folder_path_1)
 
     # Load TensorFlow model 2
-    # tf_model_folder_path_2 = 'model_new.tflite'
-    # tf_model_2 = load_tf_model(tf_model_folder_path_2)
+    tf_model_folder_path_2 = 'model_new.tflite'
+    tf_model_2 = load_tf_model(tf_model_folder_path_2)
 
     # Load TensorFlow model 3
     tf_model_folder_path_3 = 'tflite_model.tflite'
@@ -122,7 +122,7 @@ def main():
 
     # Make predictions with the TensorFlow model
     predictions_1 = make_prediction_with_tf_model(tf_model_1, processed_data)
-    # predictions_2 = make_prediction_with_tf_model(tf_model_2, processed_data)
+    predictions_2 = make_prediction_with_tf_model(tf_model_2, processed_data)
     predictions_3 = make_prediction_with_tf_model(tf_model_3, processed_data)
 
     # Display predictions - adjust according to your actual model's output
@@ -131,7 +131,7 @@ def main():
     st.markdown('<font size="5"><b>Haemoglobin Value:</b></font>', unsafe_allow_html=True)
 
     predicted_value_1 = predictions_1[0][0]  # This accesses the first element in the nested structure
-    # predicted_value_2 = predictions_2[0][0]  # This accesses the first element in the nested structure
+    predicted_value_2 = predictions_2[0][0]  # This accesses the first element in the nested structure
     predicted_value_3 = predictions_3[0][0]  # This accesses the first element in the nested structure
 
     # Assuming st is Streamlit and you've previously defined it
@@ -143,12 +143,12 @@ def main():
     else:
         st.markdown(f'<font size="5"><b>{predicted_value_1:.1f} g/dL</b></font>', unsafe_allow_html=True)
     
-    # # Check and display for predicted_value_2
-    # st.markdown('<h2 style="font-bold;">tflite1</h2>', unsafe_allow_html=True)
-    # if predicted_value_2 > 25:
-    #     st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
-    # else:
-    #     st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL</b></font>', unsafe_allow_html=True)
+    # Check and display for predicted_value_2
+    st.markdown('<h2 style="font-bold;">tflite1</h2>', unsafe_allow_html=True)
+    if predicted_value_2 > 25:
+        st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<font size="5"><b>{predicted_value_2:.1f} g/dL</b></font>', unsafe_allow_html=True)
     
     # Check and display for predicted_value_3
     st.markdown('<h2 style="font-bold;">tflite2</h2>', unsafe_allow_html=True)
