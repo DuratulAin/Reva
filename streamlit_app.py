@@ -116,5 +116,5 @@ def main():
     plt.show()
     st.pyplot(plt)
     
-if _name_ == "_main_":
+if __name__ == "_main_":
     main()
