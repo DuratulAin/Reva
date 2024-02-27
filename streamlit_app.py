@@ -71,14 +71,11 @@ def main():
 def load_tf_model(model_dir):
     return tf.saved_model.load(model_dir)
 
-# Function to inspect model signature
-def inspect_model_signature(model):
-    for key, value in model.signatures.items():
-        print('Signature:', key)
-        print('Inputs:', value.inputs)
-        for output_key, output_value in value.outputs.items():
-            print('Output key:', output_key)
-        print('---')
+# Function to load a TensorFlow Lite model
+def load_tflite_model(model_file_path):
+    interpreter = tf.lite.Interpreter(model_path=model_file_path)
+    interpreter.allocate_tensors()
+    return interpreter
 
 # Function to make predictions with the loaded TensorFlow model
 def make_prediction_with_tf_model(model, data):
@@ -88,6 +85,17 @@ def make_prediction_with_tf_model(model, data):
     # Adjust 'output_0' or any other key according to your model's signature
     output_key = next(iter(predictions.keys()))  # Using the first output key
     return predictions[output_key].numpy()
+
+# Function to make predictions with a TensorFlow Lite model
+def make_prediction_with_tflite_model(interpreter, input_data):
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+    input_shape = input_details[0]['shape']
+    input_data = np.array(input_data, dtype=np.float32).reshape(input_shape)
+    interpreter.set_tensor(input_details[0]['index'], input_data)
+    interpreter.invoke()
+    output_data = interpreter.get_tensor(output_details[0]['index'])
+    return output_data
 
 # Main Streamlit app
 def main():
@@ -110,20 +118,20 @@ def main():
     tf_model_1 = load_tf_model(tf_model_folder_path_1)
 
     # Load TensorFlow model 2
-    tf_model_folder_path_2 = 'model_new.tflite'
-    tf_model_2 = load_tf_model(tf_model_folder_path_2)
+    tflite_model_folder_path_2 = 'model_new.tflite'
+    tflite_model_2 = load_tflite_model(tflite_model_folder_path_2)
 
     # Load TensorFlow model 3
-    tf_model_folder_path_3 = 'tflite_model.tflite'
-    tf_model_3 = load_tf_model(tf_model_folder_path_3)
+    tflite_model_folder_path_3 = 'tflite_model.tflite'
+    tflite_model_3 = load_tflite_model(tflite_model_folder_path_3)
 
     # Optional: Inspect model signature to verify input/output
     # inspect_model_signature(tf_model)
 
     # Make predictions with the TensorFlow model
     predictions_1 = make_prediction_with_tf_model(tf_model_1, processed_data)
-    predictions_2 = make_prediction_with_tf_model(tf_model_2, processed_data)
-    predictions_3 = make_prediction_with_tf_model(tf_model_3, processed_data)
+    predictions_2 = make_prediction_with_tflite_model(tflite_model_2, processed_data)
+    predictions_3 = make_prediction_with_tflite_model(tflite_model_3 processed_data)
 
     # Display predictions - adjust according to your actual model's output
     # st.write("Predictions:", predictions)
