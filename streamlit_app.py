@@ -92,17 +92,20 @@ def main():
         tf_model2 = load_tf_model(tf_model_folder_path2)
         tf_model3 = load_tf_model(tf_model_folder_path3)
 
-        if all([tf_model1, tf_model2, tf_model3]):
-            predictions1 = make_prediction_with_tf_model(tf_model1, processed_data)
-            predictions2 = make_prediction_with_tf_model(tf_model2, processed_data)
-            predictions3 = make_prediction_with_tf_model(tf_model3, processed_data)
+        # Display predictions for each model
+    for idx, predictions in enumerate([predictions1, predictions2, predictions3], start=1):
+        st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
+        predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
+    
+        # Check if the predicted value is more than 25
+        if predicted_value > 25:
+            # Display only the word "High" in red for this model
+            st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL - <span style="color: red;">High</span></b></font>', unsafe_allow_html=True)
+        else:
+            # If the predicted value does not exceed 25, display the value normally for this model
+            st.markdown(f'<font size="5"><b>{predicted_value:.1f} g/dL</b></font>', unsafe_allow_html=True)
 
-            for idx, predictions in enumerate([predictions1, predictions2, predictions3], start=1):
-                predicted_value = predictions[0]  # Adjust based on your model's output
-                if predicted_value > 25:
-                    st.markdown(f'Model {idx} Haemoglobin Value: **{predicted_value:.1f} g/dL - High**', unsafe_allow_html=True)
-                else:
-                    st.markdown(f'Model {idx} Haemoglobin Value: **{predicted_value:.1f} g/dL**', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
+
