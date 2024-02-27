@@ -84,7 +84,7 @@ def main():
 
         processed_data = data.iloc[0].values  # Assuming data preprocessing is required
 
-        tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
+        tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
         tf_model_folder_path2 = 'tflite_model.tflite'
         tf_model_folder_path3 = 'model_new.tflite'
 
@@ -100,7 +100,7 @@ def main():
         # Display predictions for each model
         for idx, predictions in enumerate([predictions1, predictions2, predictions3], start=1):
             st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
-            predicted_value = predictions2[0][0]  # This accesses the first element in the nested structure
+            predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
         
             # Check if the predicted value is more than 25
             if predicted_value > 25:
