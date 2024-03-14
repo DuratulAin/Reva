@@ -19,16 +19,16 @@ import numpy as np  # For data manipulation, especially with TFLite models
 #         st.error(error_message)
 #         return None
 
-    xano_api_endpoint_spectral = 'https://x8ki-letl-twmt.n7.xano.io/api:DKaWNKM4/spectral_data'
-    payload_spectral = {}
-    response_spectral = requests.get(xano_api_endpoint_spectral, params=payload_spectral)
+#     xano_api_endpoint_spectral = 'https://x8ki-letl-twmt.n7.xano.io/api:DKaWNKM4/spectral_data'
+#     payload_spectral = {}
+#     response_spectral = requests.get(xano_api_endpoint_spectral, params=payload_spectral)
 
-    if response_spectral.status_code == 200:
-        data_spectral = response_spectral.json()
-    else:
-        error_message = "Failed to retrieve data. Status code: " + str(response_spectral.status_code)
-        st.error(error_message)
-        return None
+#     if response_spectral.status_code == 200:
+#         data_spectral = response_spectral.json()
+#     else:
+#         error_message = "Failed to retrieve data. Status code: " + str(response_spectral.status_code)
+#         st.error(error_message)
+#         return None
 
     df_bg = pd.DataFrame(data_bg).iloc[:1].apply(pd.to_numeric, errors='coerce')
     df_spectral = pd.DataFrame(data_spectral).iloc[:1].apply(pd.to_numeric, errors='coerce')
