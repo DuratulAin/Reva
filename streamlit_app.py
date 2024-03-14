@@ -6,18 +6,18 @@ import tensorflow as tf
 from tensorflow.lite.python.interpreter import Interpreter  # For loading TFLite models
 import numpy as np  # For data manipulation, especially with TFLite models
 
-# Function to retrieve data from Xano and save it as a CSV file
-def retrieve_data():
-    xano_api_endpoint_bg = 'https://x8ki-letl-twmt.n7.xano.io/api:U4wk_Gn6/BackgroundReading'
-    payload_bg = {}
-    response_bg = requests.get(xano_api_endpoint_bg, params=payload_bg)
+# # Function to retrieve data from Xano and save it as a CSV file
+# def retrieve_data():
+#     xano_api_endpoint_bg = 'https://x8ki-letl-twmt.n7.xano.io/api:U4wk_Gn6/BackgroundReading'
+#     payload_bg = {}
+#     response_bg = requests.get(xano_api_endpoint_bg, params=payload_bg)
 
-    if response_bg.status_code == 200:
-        data_bg = response_bg.json()
-    else:
-        error_message = "Failed to retrieve data. Status code: " + str(response_bg.status_code)
-        st.error(error_message)
-        return None
+#     if response_bg.status_code == 200:
+#         data_bg = response_bg.json()
+#     else:
+#         error_message = "Failed to retrieve data. Status code: " + str(response_bg.status_code)
+#         st.error(error_message)
+#         return None
 
     xano_api_endpoint_spectral = 'https://x8ki-letl-twmt.n7.xano.io/api:DKaWNKM4/spectral_data'
     payload_spectral = {}
