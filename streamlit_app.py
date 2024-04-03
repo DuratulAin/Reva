@@ -84,21 +84,21 @@ def main():
 
         processed_data = data.iloc[0].values  # Assuming data preprocessing is required
 
-        tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
+        # tf_model_folder_path1 = 'reva-lablink-hb-125-(original-data).csv_best_model_2024-02-16_11-47-00_b4_r0.26'
         tf_model_folder_path2 = 'reva-lablink-hb-125-(original-data).csv_r2_0.39_2024-02-15_11-55-27'
-        tf_model_folder_path3 = 'tflite_model.tflite'
-        tf_model_folder_path4 = 'model_new.tflite'
+        # tf_model_folder_path3 = 'tflite_model.tflite'
+        # tf_model_folder_path4 = 'model_new.tflite'
 
-        tf_model1 = load_tf_model(tf_model_folder_path1)
+        # tf_model1 = load_tf_model(tf_model_folder_path1)
         tf_model2 = load_tf_model(tf_model_folder_path2)
-        tf_model3 = load_tf_model(tf_model_folder_path3)
-        tf_model4 = load_tf_model(tf_model_folder_path4)
+        # tf_model3 = load_tf_model(tf_model_folder_path3)
+        # tf_model4 = load_tf_model(tf_model_folder_path4)
 
         # Make predictions with each TensorFlow model
-        predictions1 = make_prediction_with_tf_model(tf_model1, processed_data)
+        # predictions1 = make_prediction_with_tf_model(tf_model1, processed_data)
         predictions2 = make_prediction_with_tf_model(tf_model2, processed_data)
-        predictions3 = make_prediction_with_tf_model(tf_model3, processed_data)
-        predictions4 = make_prediction_with_tf_model(tf_model4, processed_data)
+        # predictions3 = make_prediction_with_tf_model(tf_model3, processed_data)
+        # predictions4 = make_prediction_with_tf_model(tf_model4, processed_data)
         
         # Display predictions for each model
         for idx, predictions in enumerate([predictions1, predictions2, predictions3, predictions4], start=1):
