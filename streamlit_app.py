@@ -101,10 +101,14 @@ def main():
         # predictions4 = make_prediction_with_tf_model(tf_model4, processed_data)
         
         # Display predictions for each model
-        for idx, predictions in enumerate([predictions1, predictions2, predictions3, predictions4], start=1):
+        # for idx, predictions in enumerate([predictions1, predictions2, predictions3, predictions4], start=1):
+        #     st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
+        #     predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
+
+        for idx, predictions in enumerate([predictions2,], start=1):
             st.markdown(f'<font size="5"><b>Model {idx} Haemoglobin Value:</b></font>', unsafe_allow_html=True)
             predicted_value = predictions[0][0]  # This accesses the first element in the nested structure
-        
+
             # Check if the predicted value is more than 25
             if predicted_value > 25:
                 # Display only the word "High" in red for this model
